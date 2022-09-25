@@ -8,13 +8,7 @@ import { Pool } from 'pg';
       provide: 'PG_POOL',
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
-        return new Pool({
-          host: config.get('PG_HOST'),
-          port: +config.get('PG_PORT'),
-          database: config.get('PG_DB'),
-          user: config.get('PG_USER'),
-          password: config.get('PG_PASS'),
-        });
+        return new Pool({});
       },
     },
   ],
