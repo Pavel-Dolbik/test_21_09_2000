@@ -6,7 +6,7 @@ export async function up(knex: Knex): Promise<void> {
 		CREATE TABLE cars (
 			id SERIAL PRIMARY KEY,
 			number VARCHAR(10) UNIQUE NOT NULL
-		)
+		);
 		`,
   );
 }

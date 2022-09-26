@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Pool } from 'pg';
+import { CarRepository } from './entity/car/car.repository';
 import { pgConfig } from './config/pg-config';
 import { DbService } from './db.service';
-import { DataServices } from './services/data-services';
 
 @Module({
   providers: [
@@ -15,11 +15,8 @@ import { DataServices } from './services/data-services';
       },
     },
     DbService,
-    {
-      provide: DataServices,
-      useClass: DataServices,
-    },
+    CarRepository,
   ],
-  exports: [DataServices],
+  exports: [DbService, CarRepository],
 })
 export class DbModule {}
